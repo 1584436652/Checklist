@@ -3,7 +3,7 @@ import xlrd
 
 class ReadEx:
 
-    def read_excel(self):
+    def xlrd_read_excel(self):
         # 打开excel表，填写路径
         book = xlrd.open_workbook("wuliu.xlsx")
         # 找到sheet页
@@ -14,7 +14,7 @@ class ReadEx:
 
         s =[]
         key =table.row_values(0)# 这是第一行数据，作为字典的key值
-
+        print(key)
         if row_Num <= 1:
             print("没数据")
         else:
@@ -22,17 +22,20 @@ class ReadEx:
             for i in range(row_Num-1):
                 d ={}
                 values = table.row_values(j)
+                # print(values)
                 for x in range(col_Num):
                     # 把key值对应的value赋值给key，每行循环
                     d[key[x]]=values[x]
+                print(d)
                 j += 1
                 # 把字典加到列表中
                 s.append(d)
             return s
 
+
 if __name__ == '__main__':
     r = ReadEx()
-    s=r.read_excel()
-    for i in s:
-        print(i)
-    print(s)
+    s=r.xlrd_read_excel()
+    # for i in s:
+    #     print(i)
+    # print(s)
