@@ -74,6 +74,7 @@ class Merge:
         cr.ws.merge_cells('O1:T1')
         for x_v in self.convert(x):
             cr.ws.append(x_v)
+        print(x)
         # for y_v in self.convert(y):
         #     cr.ws.append(y_v)
 
